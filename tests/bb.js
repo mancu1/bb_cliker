@@ -72,8 +72,8 @@ module.exports = {
              const tabs = (await browser.windowHandles()).value;
              console.log("tabs", tabs);
              if (tabs.length > 1) {
-                 // await browser.switchWindow(tabs[0]);
-                 await browser.closeWindow();
+                 await browser.switchWindow(tabs[0]);
+                 // await browser.closeWindow();
                  await browser.pause(1500);
              }
              await browser.pause(450);
