@@ -40,7 +40,7 @@ module.exports = {
     const elementsSize = elements.value.length;
     for (let ind = 0; ind < elementsSize; ind++) {
       console.log("start");
-      await browser.pause(450);
+      await browser.pause(500);
       await browser.waitForElementVisible("#containerdiv");
       await browser.waitForElementVisible("#left_stream_alerts");
       const tempElements = await browser.elements(
@@ -54,46 +54,51 @@ module.exports = {
       await browser.pause(500);
       const text = await browser.elementIdText(elementID);
       if (!text.value) continue;
+      console.log(text.value);
       await browser.elementIdClick(elementID);
-      await browser.pause(450);
+      await browser.pause(500);
       await browser.waitForElementVisible("a[class=individualContent-link]");
-      await browser.click("a[class=individualCosntent-link]");
-      console.log("bef back");
-      await browser.pause(450);
+      await browser.pause(500);
+      await browser.click("a[class=individualContent-link]");
+      await browser.pause(500);
       await browser.back();
       const normalUrl =
         "https://bb.kai.ru:8443/webapps/bb-social-learning-BBLEARN/execute/mybb?cmd=display&toolId=AlertsOnMyBb_____AlertsTool";
       let url = (await browser.url()).value;
-      await browser.pause(450);
+      await browser.pause(500);
       if (url !== normalUrl) {
         await browser.back();
         url = (await browser.url()).value;
       }
-      await browser.pause(450);
+      await browser.pause(500);
       const tabs = (await browser.windowHandles()).value;
       if (tabs.length > 1) {
         await browser.switchWindow(tabs[0]);
         await browser.pause(1500);
       }
-      await browser.pause(450);
+      await browser.pause(500);
       await browser.waitForElementVisible("#containerdiv");
       await browser.waitForElementVisible("#mybbCanvas");
       await browser.frame("mybbCanvas");
       await browser.waitForElementVisible("#stream_alerts");
       await browser.waitForElementVisible("#openSettings_alerts");
-      await browser.pause(450);
+      await browser.pause(500);
       await browser.click("#openSettings_alerts");
       await browser.waitForElementVisible("input[id=selectAllSettings_alerts]");
+      await browser.pause(500);
       await browser.click("input[id=selectAllSettings_alerts]");
+      await browser.pause(500);
       await browser.click("input[id=selectAllSettings_alerts]");
-      await browser.pause(450);
+      await browser.pause(500);
       await browser.waitForElementVisible(
         "input[id=bb-nautilus_CO\\:CO_AVAIL]"
       );
+      await browser.pause(500);
       await browser.click("input[id=bb-nautilus_CO\\:CO_AVAIL]");
+      await browser.pause(500);
       await browser.click("a[id=updateSettings_alerts]");
-      await browser.pause(450);
-      await browser.end();
+      await browser.pause(500);
     }
+    await browser.end();
   },
 };
