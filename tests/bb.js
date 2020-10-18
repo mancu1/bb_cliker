@@ -1,5 +1,5 @@
-var userName = "***";
-var userPass = "***";
+var userName = process.env.USER_NAME||"***";
+var userPass = process.env.USER_PASSWORD||"***";
 
 module.exports = {
     '1. Click bb login' : function(browser) {

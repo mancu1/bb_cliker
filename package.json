@@ -4,12 +4,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./nightwatch.js",
-    "bb": "yarn start ./tests/bb.js"
+    "bb": "node ./nightwatch.js ./tests/bb.js"
   },
   "author": "Mansur Zakirov <mansur.zakirov@boolqa.com>",
   "license": "MIT",
   "dependencies": {
     "chromedriver": "^86.0.0",
+    "dotenv": "^8.2.0",
     "nightwatch": "^1.4.3"
   }
 }
